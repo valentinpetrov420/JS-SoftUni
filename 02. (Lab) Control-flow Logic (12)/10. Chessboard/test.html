@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chessboard</title>
+    <div id="myId"></div>
+    <script>
+        function chessboard(n) {
+            let html = '<div class="chessboard">\n';
+            for (let i = 1; i <= n; i++) {
+                html += '   <div>\n';
+                let color = (i % 2 == 0) ? 'white' : 'black';
+                for (let j = 1; j <= n; j++) {
+                    html += `        <span class="${color}"></span>\n`;
+                    color = (color == 'white') ? 'black' : 'white';
+                }
+                html += '   </div>\n';
+            }
+            return html;
+        }
+        let css = document.createElement("style");
+        css.innerHTML = `body { background: #CCC; }
+        .chessboard { display: inline-block; float:right; }
+        .black, .white {
+        width:50px; height:50px;
+        display: inline-block; }
+        .black { background: black; }
+        .white { background: white; }
+        `;
+        document.getElementsByTagName("head")[0].appendChild(css);
+        document.body.innerHTML = chessboard(["10"]);
+    </script>
+</head>
+<body>
+</body>
+</html>
