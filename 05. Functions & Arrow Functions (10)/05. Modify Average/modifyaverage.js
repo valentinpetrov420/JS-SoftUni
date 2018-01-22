@@ -1,21 +1,10 @@
-function solve(n){
-    function modifyAverage(n){
-        let nAsString = n.toString();
-        let total = 0;
-        let digitCount = 0;
-
-        for(let i = 0; i < nAsString.length; i++){
-            total += parseInt(nAsString[i]);
-            digitCount++;
-        }
-        let average = total / digitCount;
+function solve(n) {
+    let nString = String(n);
+    let getAverage = (nString) => nString.split('').map(Number).reduce((a, b) => a += b) / nString.length;
+    while (getAverage(nString) <= 5) {
+        nString += '9';
     }
-    if(modifyAverage(n) < 5){
-        console.log(average + '9');
-    }
-    else{
-        modifyAverage(n);
-    }
+    console.log(nString);
 }
 
 solve(101);
