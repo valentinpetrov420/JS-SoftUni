@@ -7,4 +7,4 @@ function solve(n) {
     console.log(nString);
 }
 
-solve(1010);
+solve(101);
