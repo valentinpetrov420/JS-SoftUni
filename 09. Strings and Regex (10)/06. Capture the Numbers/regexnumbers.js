@@ -8,7 +8,7 @@ function solve(str){
     }
     let match = regex.exec(text);
     while(match){
-        numbers.push(match[0])
+        numbers.push(match[0]);
         match = regex.exec(text);
     }
     console.log(numbers.join(" "));

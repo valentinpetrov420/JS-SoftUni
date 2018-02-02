@@ -1,13 +1,19 @@
 function solve(arr){
+    let currentBiggest = arr[0];
+    let currentNum;
     let result = [];
-    result.push(arr[0]);
+    result.push(currentBiggest);
+    for(let i = 1; i < arr.length; i++){
+        currentNum = arr[i];
 
-    for (let i = 1; i < arr.length; i++) {
-        if(arr[i] >= arr[i-1]){
-            result.push(arr[i]);
+        if(currentNum >= currentBiggest){
+            currentBiggest = currentNum;
+            result.push(currentBiggest);
         }
     }
-    console.log(result);
+    for(let num of result){
+        console.log(num);
+    }
 }
 
 solve([20, 2, 3, 15, 2, 1]);
