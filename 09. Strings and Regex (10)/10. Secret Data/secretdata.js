@@ -1,21 +1,21 @@
 function solve(arr){
     let patterns = {
-       nameRegex: /(\*[A-Z]{1}[a-z]+)(?= |\t|$)/g,
-        numberRegex: /(\+[0-9\-]{10})(?= |\t|$)/,
-        idRegex: /(\![a-zA-Z0-9\-]+)(?= |\t|$)/,
-        baseRegex: /(\_[a-zA-Z0-9]+)(?= |\t|$)/
-    };
+        nameRegex: /(\*[A-Z]{1}[A-Za-z]*)(?= |\t|$)/g,
+        numRegex: /(\+[0-9\-]{10})(?= |\t|$)/g,
+        idRegex: /(\![a-zA-Z0-9]+)(?= |\t|$)/g,
+        baseRegex: /(\_[a-zA-Z0-9]+)(?= |\t|$)/g
+    }
 
     let output = '';
-    for (let string of arr) {
-        for (let obj of Object.values(patterns)) {
-            let result = string.replace(obj, function(match){
+    for(let string of arr){
+        for(const pattern of Object.values(patterns)){
+            string = string.replace(pattern, function(match) {
                 return '|'.repeat(match.length);
             });
-            console.log(result);
-
         }
+        output += string + '\n';
     }
+    console.log(output);
 }
 
 solve(['Agent *Ivankov was in the room when it all happened.',

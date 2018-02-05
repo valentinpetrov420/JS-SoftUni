@@ -1,14 +1,16 @@
-function solve(str){
-    let regex = /[-a-zA-Z0-9@:%._\+~#=]{3,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+function solve(arr){
+    let pattern = /(www\.)([a-zA-Z\d\-]+)+(\.[a-z]+)+/g;
     let sites = [];
-    let match = regex.exec(str);
-    while(match){
-        sites.push(match[0])
-        match = regex.exec(str);
+
+    for(const string of arr){
+        let match = pattern.exec(string);
+
+        while (match){
+            sites.push(match[0]);
+            match = pattern.exec(string);
+        }
     }
-    for (let i = 0; i < sites.length; i++) {
-        console.log(sites[i]);
-    }
+    console.log(sites.join('\n'));
 }
 
 solve('Join WebStars now for free, at www.web-stars.com\n' +

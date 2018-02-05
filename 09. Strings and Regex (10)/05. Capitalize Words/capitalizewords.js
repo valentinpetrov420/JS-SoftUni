@@ -13,7 +13,7 @@ function solve([input]) {
         letters = '';
         result.push(word);
     }
-    console.log(result.join(' '));
+    return result.join(' ');
 }
 
-solve(['Asd dsa ghf']);
+console.log(solve(['Was That Easy? Try This One For Size!']));
