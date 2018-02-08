@@ -1,4 +1,4 @@
-function solve([input]) {
+function solve(input) {
     input = input.toUpperCase();
     let result = [];
     let letters = '';
@@ -16,4 +16,4 @@ function solve([input]) {
     return result.join(' ');
 }
 
-console.log(solve(['Was That Easy? Try This One For Size!']));
+console.log(solve('Was That Easy? Try This One For Size!'));
