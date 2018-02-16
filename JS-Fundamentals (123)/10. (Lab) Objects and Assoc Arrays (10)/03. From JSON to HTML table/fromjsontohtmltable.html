@@ -46,7 +46,13 @@
     }
     window.onload = function(){
         let container = document.getElementById('wrapper');
-        container.innerHTML = fromJSONToHTMLTable(['[{"Name":"Pesho <div>-a","Age":20,"City":"Sofia"},{"Name":"Gosho","Age":18,"City":"Plovdiv"},{"Name":"Angel","Age":18,"City":"Veliko Tarnovo"}]']);
+        container.innerHTML = fromJSONToHTMLTable([
+            '[ { "kingdom":"Maiden Way","general":"Merek","army":5000 },',
+            '{ "kingdom":"Stonegate","general":"Ulric","army":4900 }',
+            '{ "kingdom":"Stonegate","general":"Doran","army":70000 }',
+            '{ "kingdom":"YorkenShire","general":"Quinn","army":0 }',
+            '{ "kingdom":"YorkenShire","general":"Quinn","army":2000 }',
+            '{ "kingdom":"Maiden Way","general":"Berinon","army":100000 }' ]);
     };
 </script>
 </body>
