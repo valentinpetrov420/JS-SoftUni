@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Sum Numbers</title>
 </head>
-<body><input type="text" id="num1" /> +
+<body>
+<input type="text" id="num1" /> +
 <input type="text" id="num2" /> =
 <input type="text" id="sum" readonly="readonly" disabled/>
 <input type="button" value="Calc" onclick="calc()" />
@@ -13,8 +14,8 @@
         let a = document.getElementById('num1').value;
         let b = document.getElementById('num2').value;
         let sum = document.getElementById('sum');
-        let result = Number(a) + Number(b);
-        sum.value = Number(result);
+        let result = +a + +b;
+        sum.value = result;
     }
 </script>
 

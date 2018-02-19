@@ -25,15 +25,15 @@
 </div>
 <script>
     function focus() {
-        let inputs = document.getElementsByTagName('inputs');
-        for(let h of inputs){
-            h.addEventListener('focus', function(){
-                h.target.parentNode.className = 'focused';
+        let inputs = document.getElementsByTagName('input');
+        Array.from(inputs).forEach(i => {
+            i.addEventListener('focus', (event) => {
+                event.target.parentNode.className = 'focused';
             });
-            h.addEventListener('blur', function(){
-                h.target.parentNode.className = '';
+            i.addEventListener('blur', (event) => {
+                event.target.parentNode.removeAttribute('class');
             });
-        }
+        });
     }
 </script>
 </body>
