@@ -22,4 +22,4 @@ function solve(n){
     }
 }
 
-solve(6);
+solve(7);
