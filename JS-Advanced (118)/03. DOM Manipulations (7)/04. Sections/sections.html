@@ -29,10 +29,16 @@
 <body onload="create(['Section 1', 'Section 2', 'Section 3', '4', '5']);">
 <script>
     function create(sentences) {
-        let content = document.getElementById('content');
-        for(let i = 0; i < sentences.length; i++){
+        for(let sentence of sentences){
             let currentDiv = document.createElement('DIV');
-            currentDiv.innerHTML = `<p>${sentences[i]}</p>`;
+            let paragraph = document.createElement('p');
+            paragraph.textContent = sentence;
+            paragraph.style.display='none';
+            currentDiv.appendChild(paragraph);
+            currentDiv.addEventListener('click', function(){
+                paragraph.style.display='block';
+            });
+            let content = document.getElementById('content');
             content.appendChild(currentDiv);
         }
     }
