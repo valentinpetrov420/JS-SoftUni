@@ -1,6 +1,6 @@
-function createBook(selector, name, author, isbn){
-    let id = 1;
-    return (function() {
+(function bookGenerator(){
+    return function createBook(selector, name, author, isbn) {
+        let id = 0;
         $(selector).append($('<div>').attr('id', 'book' + id))
             .append($('<p>').addClass('title').text(name))
             .append($('<p>').addClass('author').text(author))
@@ -15,5 +15,6 @@ function createBook(selector, name, author, isbn){
         function deselect() {
             console.log(this);
         }
-    })();
-}
+        id++;
+    }
+}());
