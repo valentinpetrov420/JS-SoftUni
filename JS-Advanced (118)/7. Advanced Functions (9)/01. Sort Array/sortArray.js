@@ -1,4 +1,4 @@
-function solve(){
+function solve(inputArray, sortMethod){
     let ascendingComparator = function (a, b){
         return a - b;
     };
@@ -7,6 +7,9 @@ function solve(){
     };
     let sortingStrategies = {
         'asc': ascendingComparator,
-        ''
-    }
+        'desc': descendingComparator
+    };
+    return inputArray.sort(sortingStrategies[sortMethod]);
 }
+
+console.log(solve([2, 3, 5, 1, 0, -5], 'asc'));
