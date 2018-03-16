@@ -1,0 +1,14 @@
+{
+  "name": "JS-Core",
+  "author": "Valentin Petrov",
+  "version": "0.0.1",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "jquery": "^3.3.1",
+    "jsdom": "^11.6.2",
+    "mocha": "^5.0.4",
+    "node": "^9.8.0",
+    "requirejs": "^2.3.5",
+    "systemjs": "^0.21.0"
+  }
+}
