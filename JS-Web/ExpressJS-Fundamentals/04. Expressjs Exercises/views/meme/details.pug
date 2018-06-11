@@ -1,0 +1,11 @@
+extends ../layout.pug
+
+block content
+    div.container
+        .card
+        .meme-card
+            img.meme-img(src=`${meme.image}`)
+            h3=(`Title: ${meme.title}`)
+            p=(`Description: ${meme.description}`)
+            p=(`Genre: ${meme.genre.name}`)
+            p=(`Votes: ${meme.votes}`)
