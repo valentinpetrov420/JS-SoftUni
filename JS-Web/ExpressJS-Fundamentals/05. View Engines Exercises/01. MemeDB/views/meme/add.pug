@@ -1,0 +1,21 @@
+extends ../layout.pug
+
+block content
+    form.form.center-form(method='post', action='/meme/add' enctype='multipart/form-data')
+        h2 Add New Meme
+        .form-group
+            label(for='name') Title
+            input#name.input-field(name='title', type='text')
+        .form-group
+            label(for='description') Description
+            textarea#description.input-field(name='description', type='text')
+        .form-group
+            label(for='name') Genre
+            select.input-field(name='genre')
+                each genre in genres
+                    option(value=`${genre._id}`)=genre.name
+        .form-group
+            label(for='image') Image
+            input#image.input-field(name='image', type='file', accept='.jpg,.jpeg,.png')
+        .form-group
+            input.form-btn.btn(type='submit', value='Add')

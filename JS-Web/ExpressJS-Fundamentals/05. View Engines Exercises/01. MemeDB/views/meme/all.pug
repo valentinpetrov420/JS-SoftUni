@@ -1,0 +1,9 @@
+extends ../layout.pug
+
+block content
+    h1.head-title Here are your memes
+    div.container
+        each meme in memes
+            div.meme
+                a(href=`/memes/details/${meme._id}`)
+                    img.memePoster(src=`${meme.image}`)
