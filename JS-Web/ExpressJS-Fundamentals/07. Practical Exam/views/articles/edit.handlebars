@@ -1,0 +1,12 @@
+<h1>Welcome to SoftUni Wiki!</h1>
+<section>
+    <h2>Edit article</h2>
+    <div class="spacer">
+        <form action="/articles/edit/{{_id}}" method="POST">
+            {{title}}
+            <label>Content</label>
+            <textarea name="editedContent">{{content}}</textarea>
+            <input type="submit" value="Edit">
+        </form>
+    </div>
+</section>

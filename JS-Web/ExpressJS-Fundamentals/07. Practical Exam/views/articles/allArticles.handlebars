@@ -1,0 +1,26 @@
+<h1>Welcome to SoftUni Wiki!</h1>
+<img class="logo" src="img/logo.png" alt="logo">
+<section>
+    <h2>All articles</h2>
+    <div class="spacer">
+        <ul>
+            {{#each articles}}
+                <li>
+                    <div class="spacer">
+                        <h2><a href="/articles/details/{{_id}}">{{title}}</a>
+                            <div class="controls">
+                                <a href="/articles/edit/{{_id}}">[edit]</a>
+                                [history]
+                            </div>
+                        </h2>
+                        <article>
+                            <p>
+                                {{content}}
+                            </p>
+                        </article>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>

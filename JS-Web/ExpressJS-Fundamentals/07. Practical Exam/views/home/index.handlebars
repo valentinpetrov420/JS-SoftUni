@@ -1,0 +1,12 @@
+<h1>Welcome to SoftUni Wiki!</h1>
+(№0 is latest for SURE)
+{{#each articles}}
+    <article>
+        Article №{{@index}}<br>
+        <a href="/articles/edit/{{_id}}">[edit]</a><br>
+        Title: <a href="articles/details/{{_id}}">[{{title}}]</a>
+        <p>
+    Content: {{content}}
+        </p>
+    </article>
+{{/each}}
