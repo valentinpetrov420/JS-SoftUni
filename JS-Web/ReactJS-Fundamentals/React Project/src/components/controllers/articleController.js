@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import observer from '../../api/observer';
 
 function getRequestData(state, defaultState) {
     let data = {};
@@ -46,9 +47,9 @@ export default function ArticleController(Form, model, submitter) {
         handleSubmit = ev => {
             ev.preventDefault();
 
-            this.setState({author: sessionStorage.getItem('username')});
-
+            this.state.author = sessionStorage.getItem('username');
             let data = getRequestData(this.state, this.dataModel);
+
             if (model.validate) {
                 let error = model.validate(data);
                 if (error) {

@@ -2,18 +2,30 @@ import React, {Component} from 'react';
 import observer from '../../api/observer';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router';
 
-export default class Header extends Component {
+class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {username: null};
 
         observer.subscribe(observer.events.loginUser, this.userLoggedIn);
         observer.subscribe(observer.events.loggedOut, this.userLoggedOut);
+        observer.subscribe(observer.events.articleCreated, this.articleCreated);
     }
+    static propTypes = {
+        history: PropTypes.object.isRequired
+    };
+
+    articleCreated = () => {
+        const { history } = this.props;
+        this.props.history.push('/MyArticles');
+    };
 
     userLoggedIn = username => {
+        const { history } = this.props;
         this.setState({username});
+        this.props.history.push('/blog');
     };
 
     userLoggedOut = () =>
@@ -43,3 +55,5 @@ export default class Header extends Component {
         )
     }
 }
+
+export default withRouter(Header);

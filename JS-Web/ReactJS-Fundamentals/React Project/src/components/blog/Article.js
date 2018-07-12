@@ -4,8 +4,14 @@ import {Link} from 'react-router-dom';
 import articleService from '../../services/articleService';
 
 export default class Post extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            username: null
+        };
+    }
     render() {
-        const isAuthorized = this.props.author === sessionStorage.getItem('username') || sessionStorage.getItem('userRole') != undefined;
+        const isAuthorized = this.props.author == sessionStorage.getItem('username') || sessionStorage.getItem('userRole') == 'admin';
         const authorizedSection =
             <li className="action">
                 <Link to='/Article/Edit' className="editPost">Edit</Link>
@@ -17,6 +23,9 @@ export default class Post extends Component {
             </div>
             <div className="title">
                 <b>Title: </b>{this.props.title}
+            </div>
+            <div className="genre">
+                <b>Genre: </b>{this.props.genre}
             </div>
             <div className="author">
                 <b>Author: </b>{this.props.author}

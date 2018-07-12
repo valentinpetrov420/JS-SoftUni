@@ -25,6 +25,7 @@ export default {
         send: data => requester.post('user', '', 'basic', data),
         success: function(res) {
             observer.trigger(observer.events.loginUser, res.username);
+            sessionStorage.setItem('username', res.username);
             sessionStorage.setItem('authtoken', res._kmd.authtoken);
             sessionStorage.setItem('userRoles', res.Roles.join(','))
         },

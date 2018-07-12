@@ -20,7 +20,6 @@ export default class Navigation extends Component {
 
 
     render = () => {
-        console.log(sessionStorage.getItem('username'));
         const loggedInSection =
             <div>
                 <NavLink className="nav" to='/myArticles'>My Articles</NavLink>

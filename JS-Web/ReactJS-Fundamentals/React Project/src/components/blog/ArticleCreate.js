@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import articleController from './../controllers/articleController';
 import articleModel from '../../models/articleModel';
 import articleService from '../../services/articleService';
-import {Redirect} from "react-router";
 
 class ArticleCreate extends Component {
     constructor(props) {
@@ -32,7 +31,7 @@ class ArticleCreate extends Component {
                         onChange={this.props.handleChange}
                         type="text"
                         value={this.props.genre}>
-                            <option>Report</option>
+                            <option>Choose a Genre</option>
                             <option>Review</option>
                             <option>Essay</option>
                             <option>Apology</option>

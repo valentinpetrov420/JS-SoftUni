@@ -1,12 +1,12 @@
 export default {
     defaultState: {
         title: '',
-        author: sessionStorage.getItem('username'),
+        author: '',
         content: '',
         genre: '',
     },
     validate: data => {
-        const {title, content, author} = data;
+        const {title, content} = data;
 
         if (!title) {
             return "Title is required";

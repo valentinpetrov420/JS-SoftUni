@@ -55,6 +55,7 @@ export default function ArticleController(Form, model, submitter) {
             ev.preventDefault();
 
             let data = getRequestData(this.state, this.dataModel);
+            console.log(data);
             if (model.validate) {
                 let error = model.validate(data);
                 if (error) {

@@ -7,6 +7,7 @@ export default {
         success: function (res) {
             console.log(res);
             observer.trigger(observer.events.notification, {type: 'success', message: "Success."});
+            observer.trigger(observer.events.articleCreated)
         },
         fail: res => {
             observer.trigger(observer.events.notification, {
