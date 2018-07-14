@@ -31,11 +31,13 @@ class ArticleCreate extends Component {
                         onChange={this.props.handleChange}
                         type="text"
                         value={this.props.genre}>
-                            <option>Choose a Genre</option>
-                            <option>Review</option>
+                            <option>...</option>
                             <option>Essay</option>
-                            <option>Apology</option>
                             <option>Science</option>
+                            <option>Review</option>
+                            <option>Report</option>
+                            <option>Story</option>
+                            <option>Biography</option>
                         </select>
                     </div>
                     <div className="form-group">

@@ -2,7 +2,7 @@ let subscriptions = {
     'loginUser': [],
     'loggedOut': [],
     'notification': [],
-    'articleCreated': []
+    'redirect': []
 };
 
 export default {
@@ -10,7 +10,7 @@ export default {
         loginUser: 'loginUser',
         notification: 'notification',
         loggedOut: 'loggedOut',
-        articleCreated: 'articleCreated',
+        redirect: 'redirect',
     },
     subscribe: (eventName, fn) =>
         subscriptions[eventName].push(fn),

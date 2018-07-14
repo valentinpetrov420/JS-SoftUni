@@ -7,7 +7,7 @@ export default {
         success: function (res) {
             console.log(res);
             observer.trigger(observer.events.notification, {type: 'success', message: "Success."});
-            observer.trigger(observer.events.articleCreated)
+            observer.trigger(observer.events.redirect, '/blog')
         },
         fail: res => {
             observer.trigger(observer.events.notification, {
@@ -17,6 +17,37 @@ export default {
             console.log('Failed to submit article.');
         }
     },
+    edit: {
+        send: data => requester.update('appdata', 'articles/' + data.id, 'kinvey', data),
+        success: function (res) {
+            console.log(res);
+            observer.trigger(observer.events.notification, {type: 'success', message: "Success."});
+            observer.trigger(observer.events.redirect, '/MyArticles');
+        },
+        fail: res => {
+            observer.trigger(observer.events.notification, {
+                type: 'error',
+                message: res.responseJSON.description
+            });
+            console.log('Failed to edit article.');
+        }
+    },
+    delete: {
+        send: data => requester.remove('appdata', 'articles/' + data.id, 'delete'),
+        success: function (res) {
+            console.log(res);
+            observer.trigger(observer.events.notification, {type: 'success', message: "Success."});
+            observer.trigger(observer.events.redirect, '/blog');
+        },
+        fail: res => {
+            observer.trigger(observer.events.notification, {
+                type: 'error',
+                message: res.responseJSON.description
+            });
+            console.log('Failed to delete article.');
+        }
+    },
+
     createdBeforeDays: createdOnString => {
         function pluralize(value) {
             if (value !== 1) return 's';

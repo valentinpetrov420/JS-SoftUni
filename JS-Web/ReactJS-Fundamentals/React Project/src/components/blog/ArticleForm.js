@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ArticleCreate from './ArticleCreate';
-import {Route, Redirect} from 'react-router';
+import {Redirect} from 'react-router';
 
 export default class ArticleForm extends Component {
     constructor(props){
@@ -8,7 +8,7 @@ export default class ArticleForm extends Component {
         this.state = { username: null }
     }
     render = () => {
-        if (sessionStorage.getItem('authtoken')) {
+        if (sessionStorage.getItem('username')) {
             return (
                 <div>
                     <ArticleCreate/>

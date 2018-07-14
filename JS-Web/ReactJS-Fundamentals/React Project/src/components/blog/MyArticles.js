@@ -17,7 +17,7 @@ export default class AllArticles extends Component {
                 .then(res => {
                     let myArticles = [];
                     for(let i = 0; i < res.length; i++){
-                        if(res[i].author == sessionStorage.getItem('username')){
+                        if(res[i].author === sessionStorage.getItem('username')){
                             myArticles.push(res[i]);
                         }
                     }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import {Route, Redirect} from 'react-router';
+import {Redirect} from 'react-router';
 
 export default class LoginForm extends Component {
     constructor(props){

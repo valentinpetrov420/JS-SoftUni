@@ -3,11 +3,16 @@ import $ from 'jquery';
 const kinveyBaseUrl = "https://baas.kinvey.com/";
 const kinveyAppKey = "kid_B12s6KGmX";
 const kinveyAppSecret = "7fe5116d05ad483b8e18df3b380160f4";
+const kinveyMasterSecret = "faf57ca679de4a90a180ddbe1bcff3f8";
 
 function makeAuth(type) {
-    return type === 'basic'
-        ?  'Basic ' + btoa(kinveyAppKey + ':' + kinveyAppSecret)
-        :  'Kinvey ' + sessionStorage.getItem('authtoken');
+    if(type === 'basic'){
+        return 'Basic ' + btoa(kinveyAppKey + ':' + kinveyAppSecret)
+    } else if (type === 'delete'){
+        return 'Basic ' + btoa(kinveyAppKey + ':' + kinveyMasterSecret)
+    } else {
+        return 'Kinvey ' + sessionStorage.getItem('authtoken');
+    }
 }
 
 function makeRequest(method, module, endpoint, auth, query) {

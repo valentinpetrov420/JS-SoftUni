@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 import articleService from '../../services/articleService';
+import userService from '../../services/userService';
+import observer from "../../api/observer";
+//
 
 export default class Post extends Component {
     constructor(props){
@@ -10,11 +13,28 @@ export default class Post extends Component {
             username: null
         };
     }
+
+    deleteAuthor = () => {
+        console.log(this.props.author);
+        userService.getByUsername(this.props.author).then((res) => {
+            let data = res[0]._id;
+            userService.delete.send(data)
+                .then(userService.delete.success)
+                .catch(userService.delete.fail);
+            observer.trigger(observer.events.redirect, '/blog');
+        })
+    };
+
     render() {
-        const isAuthorized = this.props.author == sessionStorage.getItem('username') || sessionStorage.getItem('userRole') == 'admin';
+        const isAuthorized = this.props.author === sessionStorage.getItem('username');
+        const isAdmin = sessionStorage.getItem('userRole') === 'admin';
+        const adminSection =
+            <div>
+                <Link to='#' onClick={this.deleteAuthor} className="btn-danger">Ban User</Link>
+            </div>;
         const authorizedSection =
             <li className="action">
-                <Link to='/Article/Edit' className="editPost">Edit</Link>
+                <Link to={'/Article/Edit/' + this.props._id} className="editPost">Edit</Link>
             </li>;
         return(
         <article className="article">
@@ -32,9 +52,6 @@ export default class Post extends Component {
             </div>
             <div className="content">
                 <div className="content">
-                    <b>Content: </b>{this.props.content}
-                </div>
-                <div className="content">
                     <div className="info">
                         <b>Posted: </b>{articleService.createdBeforeDays(this.props._kmd.ect)} ago
                     </div>
@@ -43,7 +60,8 @@ export default class Post extends Component {
                             <li className="action">
                                 <Link to={'/Article/Details/' + this.props._id}>Details</Link>
                             </li>
-                            {isAuthorized ? authorizedSection : null}
+                            {isAuthorized || isAdmin ? authorizedSection : null}
+                            {isAdmin ? adminSection : null}
                         </ul>
                     </div>
                 </div>

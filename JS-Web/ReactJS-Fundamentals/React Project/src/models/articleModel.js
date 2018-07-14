@@ -4,6 +4,7 @@ export default {
         author: '',
         content: '',
         genre: '',
+        id: ''
     },
     validate: data => {
         const {title, content} = data;

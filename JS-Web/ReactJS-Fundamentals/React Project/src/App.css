@@ -1,4 +1,5 @@
 .App {
+  word-wrap: break-word;
   text-align: center;
 }
 
@@ -22,7 +23,6 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+div.articleContent {
+  word-wrap: break-word;
 }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import observer from '../../api/observer';
 
 function getRequestData(state, defaultState) {
     let data = {};
@@ -42,12 +41,12 @@ export default function ArticleController(Form, model, submitter) {
             }
             console.log(escapeHtml(fieldName), escapeHtml(fieldValue));
             this.setState({[escapeHtml(fieldName)]: escapeHtml(fieldValue)});
+            this.setState({author: sessionStorage.getItem('username')});
         };
 
         handleSubmit = ev => {
             ev.preventDefault();
 
-            this.state.author = sessionStorage.getItem('username');
             let data = getRequestData(this.state, this.dataModel);
 
             if (model.validate) {

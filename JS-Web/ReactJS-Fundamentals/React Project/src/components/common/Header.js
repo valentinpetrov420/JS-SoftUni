@@ -11,15 +11,15 @@ class Header extends Component {
 
         observer.subscribe(observer.events.loginUser, this.userLoggedIn);
         observer.subscribe(observer.events.loggedOut, this.userLoggedOut);
-        observer.subscribe(observer.events.articleCreated, this.articleCreated);
+        observer.subscribe(observer.events.redirect, this.redirect);
     }
     static propTypes = {
         history: PropTypes.object.isRequired
     };
 
-    articleCreated = () => {
+    redirect = (path) => {
         const { history } = this.props;
-        this.props.history.push('/MyArticles');
+        this.props.history.push(path);
     };
 
     userLoggedIn = username => {
@@ -32,7 +32,6 @@ class Header extends Component {
         this.setState({username: null});
 
     render = () => {
-
         const loggedInSection =
             <div id="profile">
                 <span id="username">Hello, {this.state.username}!</span> |
@@ -48,8 +47,8 @@ class Header extends Component {
               Welcome to my React Blog
               </div>
           </h1>
+            {this.state.username ? loggedInSection : null}
         </header>
-                    {this.state.username ? loggedInSection : null}
                     </span>
             </header>
         )

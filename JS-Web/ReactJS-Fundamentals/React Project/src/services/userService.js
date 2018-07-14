@@ -38,6 +38,19 @@ export default {
             this.setState({ username: '', password: '' });
         }
     },
+    delete:{
+        send: data => requester.remove('user', data, 'delete'),
+        success: function() {
+            observer.trigger(observer.events.notification, { type: 'success', message: "Success." });
+        },
+        fail: function(res) {
+            observer.trigger(observer.events.notification, {
+                type: 'error',
+                message: res.responseJSON.description
+            });
+            console.log('failed to delete the user');
+        }
+    },
     getByUsername: username =>
         requester.get('user', '', 'kinvey', { username })
 }
