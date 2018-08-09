@@ -1,0 +1,87 @@
+{{bindingModel | json}}
+<div class='container'>
+  <div class='row space-top'>
+    <div class='col-md-12'>
+      <h1>Create New Furniture</h1>
+    </div>
+  </div>
+  <form #furnitureForm="ngForm" (ngSubmit)="create()">
+    <div class='row space-top'>
+      <div class='col-md-4'>
+        <div class='form-group'>
+          <label class='form-control-label' for='new-make'>Make</label>
+          <input class='form-control' id='new-make' type='text'
+                 required
+                 minlength="4"
+                 name="make"
+                 [(ngModel)]="bindingModel.make"
+                 #make="ngModel">
+        </div>
+        <div class='form-group has-success'>
+          <label class='form-control-label' for='new-model'>Model</label>
+          <input class='form-control is-valid' id='new-model'
+                 required
+                 type='text'
+                 minlength="4"
+                 name="model"
+                 [(ngModel)]="bindingModel.model"
+                 #model="ngModel">
+          <div class='form-control-feedback' [hidden]="model.valid || model.pristine">This input value is
+            valid
+          </div>
+        </div>
+        <div class='form-group has-danger'>
+          <label class='form-control-label' for='new-year'>Year</label>
+          <input class='form-control is-invalid' id='new-year'
+                 required
+                 type='number'
+                 [min]="1950"
+                 [max]="2050"
+                 minlength="4"
+                 name="year"
+                 [(ngModel)]="bindingModel.year"
+                 #year="ngModel">
+          <div [hidden]="year.valid || year.pristine" class='form-control-feedback'>This input value is
+            invalid
+          </div>
+        </div>
+        <div class='form-group'>
+          <label class='form-control-label' for='new-description'>Description</label>
+          <input class='form-control' id='new-description' type='text'
+                 required
+                 name="description"
+                 [(ngModel)]="bindingModel.description"
+                 #description="ngModel">
+        </div>
+      </div>
+      <div class='col-md-4'>
+        <div class='form-group'>
+          <label class='form-control-label' for='new-price'>Price</label>
+          <input class='form-control' id='new-price' type='number'
+                 required
+                 [min]="0"
+                 name="price"
+                 [(ngModel)]="bindingModel.price"
+                 #price="ngModel">
+        </div>
+        <div class='form-group'>
+          <label class='form-control-label' for='new-image'>Image</label>
+          <input class='form-control' id='new-image' type='text'
+                 required
+                 name="image"
+                 [(ngModel)]="bindingModel.image"
+                 #image="ngModel">
+        </div>
+        <div class='form-group'>
+          <label class='form-control-label' for='new-material'>Material
+            (optional)</label>
+          <input class='form-control' id='new-material' type='text'
+                 name="material"
+                 [(ngModel)]="bindingModel.material"
+                 #material="ngModel">
+        </div>
+        <input type='submit' class='btn btn-primary' value='Create'/>
+      </div>
+    </div>
+  </form>
+</div>
