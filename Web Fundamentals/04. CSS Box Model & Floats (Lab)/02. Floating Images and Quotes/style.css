@@ -1,0 +1,49 @@
+body {
+    background: rgb(238, 238, 238);
+    padding: 5em;
+}
+
+img {
+    background: rgb(255, 255, 255);
+    padding: 0.5rem;
+    box-shadow: 0 0 5rem 0.1rem rgba(0,0,0,0.25);
+    border: 3px solid #222
+}
+
+
+.page {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.page > header:first-of-type {
+    border-bottom: 2px solid #000;
+}
+
+header .site-title {
+    display: inline-block;
+    min-width: 20vw;
+    font-weight: bold;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.align-left {
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+}
+
+.align-right {
+    float: right;
+    margin: 0 0 1rem 1.5rem;
+}
+
+blockquote {
+    width: 50%;
+    float: right;
+    color: #444;
+    font-family: "Georgia", serif;
+    padding-top: 0;
+    padding-left: 2rem;
+    border-left: 3px solid #b6b0b0;
+}

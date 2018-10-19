@@ -1,0 +1,48 @@
+header nav ul li {
+  display: inline-block;
+}
+
+html {
+    font-family: "Helvetica", sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+body {
+    padding: 5em;
+}
+
+
+h1 {
+    font-family: "Georgia", sans-serif;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+p.site-title {
+    display: inline-block;
+    max-width: 20vw;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+header nav ul {
+    text-align: right;
+}
+
+
+header nav ul li a {
+    display: block;
+    padding: 0.5em 1rem;
+    text-decoration: none;
+    color: #090;
+    border-radius: 1rem;
+}
+
+header nav ul li a:focus,
+header nav ul li a:hover {
+    outline: none;
+    background: #090;
+    color: #FFF;
+}
