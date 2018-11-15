@@ -1,0 +1,14 @@
+@import url("reset.css");
+@import url("../../Exam Preparation/01. Be X-Treme/typography.css");
+@import url("buttons.css");
+@import url("forms.css");
+
+body {
+    background: #FFF;
+    padding: 5rem 2rem;
+}
+
+form{
+    max-width: 30rem;
+    margin: 0 auto;
+}

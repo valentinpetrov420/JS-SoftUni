@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+body {
+    margin: 0;
+    background: #dcdcdc;
+    font-family: Karla, sans-serif;
+}
+
+article{
+    margin: 20px;
+    background: #8be6db;
+    border: 2.5px solid blue;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    height: 534px;;
+}
+
+div.main{
+    display: flex;
+    flex-direction: row;
+}
+
+img{
+    max-width: 85%;
+    height: 45%;
+    padding-top: 10px;
+}
+
+b{
+    font-size: 18px;
+}
+
+header{
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 30px
+}
+
+.article-header{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+p{
+    padding: 10px;
+}
+
+.buy-now{
+    background: lightgrey;
+    text-align: center;
+    border: solid grey 1px;
+    position: relative;
+    width: 80px;
+    height: 17px;
+    left: 36%;
+    border-radius: 10px;
+    text-transform: uppercase;
+}

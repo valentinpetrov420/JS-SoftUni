@@ -1,0 +1,22 @@
+@import url('reset.css');
+@import url('navigation.css');
+@import url('typography.css');
+
+body{
+    padding: 2rem;
+    background: #eee;
+}
+
+body > header:first-of-type{
+    border-bottom: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.site-title{
+    font-size: 32px;
+    text-transform: uppercase;
+    padding: 0;
+}

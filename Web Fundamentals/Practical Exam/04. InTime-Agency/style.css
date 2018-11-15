@@ -1,0 +1,235 @@
+body{
+    margin: 0;
+    background: #EEEEEE;
+    font-family: Helvetica, sans-serif;
+}
+
+.header-span{
+    color: rgb(95, 190, 214);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+header > p:first-of-type{
+    margin-left: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+main{
+    position: relative;
+    top: -30px;
+}
+
+nav{
+    margin-top: 20px;
+}
+
+nav a{
+    margin-right: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+nav > a:first-of-type{
+    border-bottom: 2px solid rgb(95, 190, 214);
+    padding-bottom: 5px;
+}
+
+main > section:first-of-type{
+    background-image: url('images/slide2.jpg');
+    height: 500px;
+    background-size: cover;
+    text-transform: uppercase;
+}
+
+.layer{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 30vw;
+    position: relative;
+    top: 200px;
+    left: 200px;
+    font-size: 30px;
+    height: 143px;
+}
+
+.layer p{
+    padding: 5px;
+}
+
+.layer > a:nth-child(2){
+    text-decoration: none;
+    color: white;
+    background: rgb(0, 140, 186);
+    margin: 11px;
+    border-radius: 25px;
+    font-size: 20px;
+    padding: 10px;
+    position: relative;
+    top: -16px;
+}
+
+main > section:nth-child(2){
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    position: relative;
+    top: -18px;
+}
+
+main > section:nth-child(2) > p:first-of-type{
+    font-size: 30px;
+}
+
+.blue-line{
+    /* po-centrirano ot tova ne moga (f12 go razvalq, nz kak drugak da go napravq) */
+    box-shadow: 580px -18px 0px 3px rgb(95, 190, 214);
+    width: 6%;
+}
+
+main > section:nth-child(2) > a{
+    text-decoration: none;
+    background-color: rgb(69, 69, 69);
+    color: white;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 20px;
+    text-transform: capitalize;
+}
+
+main > section:nth-child(3) > p:first-of-type{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+}
+
+.services{
+    display: flex;
+}
+
+.services section{
+    width: 33%;
+    text-align: center;
+    background-color: white;
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+
+
+.services section img{
+    width: 85%;
+    height: auto;
+    margin: 20px;
+}
+
+.services > section > p:first-of-type{
+    font-size: 20px;
+}
+
+
+.services > section > a{
+    background-color: rgb(69, 69, 69);
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+main > section:nth-child(3) > section:nth-child(3){
+    background-color: rgb(57, 63, 67);
+    color: white;
+    text-align: center;
+    height: 150px;
+    padding-top: 30px;
+    margin-top: 20px;
+    position: relative;
+    top: 30px;
+}
+
+main > section:nth-child(3) > section:nth-child(3) > p:nth-child(1){
+    text-transform: uppercase;
+}
+
+.grey-line{
+    /* po-centrirano ot tova ne moga (f12 go razvalq, nz kak drugak da go napravq) */
+    box-shadow: 625px -5px 0px 3px rgb(207, 212, 205);
+    width: 6%;
+}
+
+main > section:nth-child(3) > section:nth-child(3) > input{
+    background-color: rgb(84, 90, 94);
+    font-style: italic;
+    width: 331px;
+    border: none;
+    height: 27px;
+    color: lightgrey;
+    border-radius: 5px;
+}
+
+main > section:nth-child(3) > section:nth-child(3) > a{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(107, 191, 255);
+    text-transform: uppercase;
+}
+
+footer{
+    padding-left: 167px;
+    font-size: 20px;
+    display: flex;
+    background-color: rgb(47, 53, 57);
+    color: white;
+    position: relative;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+footer > div{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.address{
+    display: block;
+    font-size: 16px;
+}
+
+.address p:first-of-type{
+    font-size: 18px;
+}
+
+.address p:nth-child(2){
+    padding-bottom: 20px;
+}
+
+.follow-us{
+    display: block;
+    padding-left: 167px;
+}
+
+i:hover{
+    color: #2d949f;
+    cursor: pointer;
+}
+
+.copyright{
+    text-align: center;
+    background-color: rgb(38, 43, 47);
+    height: 50px;
+    padding-top: 4px;
+    position: relative;
+    color: white;
+}

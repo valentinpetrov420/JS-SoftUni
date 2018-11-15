@@ -1,0 +1,97 @@
+input{
+    display: none;
+}
+
+nav.navbar ul{
+    margin: 0;
+    padding: 0;
+}
+
+nav.navbar > ul{
+    display: flex;
+}
+
+
+nav.navbar ul ul{
+    display: none;
+    position: absolute;
+    width: 83px;
+}
+
+nav.navbar > ul > li > ul {
+    top: 100%;
+    left: 0;
+}
+
+nav.navbar > ul > li > ul > li > ul {
+    top: 0;
+    left: inherit;
+    right: 100%;
+}
+
+nav.navbar li{
+    padding: 1.3px;
+    list-style: none outside;
+    display: block;
+    position: relative;
+}
+
+nav.main > ul > li:not(:last-child){
+    padding-right: 3px;
+}
+
+nav.navbar a{
+    display: block;
+    padding: 5px;
+    background: #0f1a1d;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+nav.navbar a:hover,
+nav.navbar li:hover > a{
+    background: #65ffb1;
+    color: black;
+}
+
+#navbar-toggle:checked + header nav.navbar {
+    display: block;
+    flex: 1 0 100%;
+}
+
+@media screen and (max-width: 800px){
+    nav.navbar{
+        display: none;
+    }
+
+    nav.navbar > ul{
+        display: block;
+    }
+
+    nav.navbar ul ul{
+        display: block;
+        width: auto;
+        position: static;
+        padding: 0.5rem 0rem 0.5rem 1.5rem;
+    }
+
+    nav.navbar ul ul a{
+        background: #ccc;
+        color: #000;
+    }
+
+    nav.navbar > ul > li:not(:last-child){
+        padding: 0 0 0.5rem 0;
+    }
+}
+
+
+@media screen and (min-width: 801px){
+    label{
+        display: none;
+    }
+    nav.navbar li:hover > ul {
+        display: block;
+    }
+}
