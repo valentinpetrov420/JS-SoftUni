@@ -1,3 +1,7 @@
 @import "reset.css";
 @import "typography.css";
 @import "timeline.css";
+
+body{
+    margin: 2rem;
+}
