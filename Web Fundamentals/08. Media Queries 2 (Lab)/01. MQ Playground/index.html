@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript viewport</title>
+    <script src="scripts/index.js"></script>
+</head>
+<body onresize="screenTest()">
+<header>
+    <p>Viewport Playground</p>
+</header>
+<section>
+    <p>Your current viewport: </p>
+    <div class="browser-name"></div>
+    <div></div>
+    <div></div>
+</section>
+</body>
+<script>
+    window.onload = currentViewport();
+    function screenTest(){
+        let w = Math.max(document.documentElement.clientWidth);
+        let h = Math.max(document.documentElement.clientHeight);
+
+        let heightDiv = document.getElementsByTagName('div')[1];
+        let widthDiv = document.getElementsByTagName('div')[2];
+
+        heightDiv.textContent = `Height = ${h}`;
+        widthDiv.textContent = `Width = ${w}`;
+    }
+</script>
+</html>
