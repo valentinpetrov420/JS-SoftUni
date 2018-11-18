@@ -1,0 +1,34 @@
+div{
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+    transition: 2s 2s;
+    animation-direction: alternate;
+}
+
+div:before{
+    display: block;
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 0%, #ffc132 0%, #f99500 50%, #c7d8e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 0%,#ffc132 0%,#f99500 50%,#c7d8e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%,#2989d8 0%,#ffc132 0%,#f99500 50%,#c7d8e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+div:after{
+    display: block;
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 0%, #bfe4fc 0%, #c1f4f0 50%, #c7d8e5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 0%,#bfe4fc 0%,#c1f4f0 50%,#c7d8e5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%,#2989d8 0%,#bfe4fc 0%,#c1f4f0 50%,#c7d8e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    transition: opacity 2s;
+}
+
+div:hover:after{
+    opacity: 0;
+}

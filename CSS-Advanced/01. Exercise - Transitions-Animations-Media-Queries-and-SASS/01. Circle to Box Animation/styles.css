@@ -1,0 +1,17 @@
+.element-box{
+    width: 40vw;
+    height: 80vh;
+    background-color: #d28213;
+    transition:1s 1s;
+    margin: 10vh auto;
+    animation: change-shapes 2s ease-out infinite normal;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes change-shapes{
+    100%{
+        border-radius: 100%;
+        background-color: #ff0300;
+        transition: 0.5s;
+    }
+}
