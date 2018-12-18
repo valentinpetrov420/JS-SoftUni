@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body{
+    margin: 0;
+    padding: 4rem;
+    font-family: 'Montserrat', serif;
+}
+
+section.main{
+    display: flex;
+}
+
+.first-part,
+.second-part,
+.third-part{
+    margin: 1rem;
+}
+
+.tickets, .musicals, .attractions, .day-trips{
+    border: 1px solid grey;
+    border-radius: 4%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+a{
+    display: block;
+    margin: 1rem;
+    text-decoration: none;
+    color: #ff0051;
+    font-weight: bold;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+ul li a{
+    margin: 1rem 0;
+}
+
+i{
+    margin-right: 0.5rem;
+}
+
+h1{
+    color: #ff0051;
+    
+}

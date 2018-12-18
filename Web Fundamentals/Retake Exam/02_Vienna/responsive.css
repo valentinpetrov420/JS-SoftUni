@@ -1,0 +1,61 @@
+@media screen and (max-width: 600px){
+    header nav#main-menu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    header nav#main-menu img{
+        width: 20%;
+    }
+
+    header nav#main-menu ul{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav#main-menu ul li{
+        border: 1px solid rgb(180, 151, 156);
+        margin: 0.2rem;
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #left-aside{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #left-aside article{
+        border: none;
+    }
+
+    #news{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
+    #news article{
+        width: 98%;
+        margin: 0 0.2rem;
+    }
+
+    #right-aside{
+        width: 90%;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+    }
+    footer ul{
+        width: 90%;
+    }
+}
