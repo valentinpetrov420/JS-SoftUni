@@ -1,0 +1,19 @@
+@import url('footer.css');
+@import url('login-register.css');
+@import url('meme-details.css');
+@import url('meme-feed.css');
+@import url('my-memes.css');
+@import url('navigation.css');
+@import url('notifications.css');
+@import url('user-meme-listings.css');
+@import url('user-profile.css');
+@import url('welcome.css');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
