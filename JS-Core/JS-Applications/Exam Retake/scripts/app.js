@@ -21,15 +21,26 @@ function saveSession(userData) {
 
 function register(data) {
   post('user', '', 'basic', data)
-    .then(saveSession)
-    .catch(console.error);
+    .then(() => {
+      saveSession;
+      showInfo('Registration Successful');
+    })
+    .catch((err) => {
+      showError(`${err.responseJSON.description}`);
+    });
 }
 
 function login(username, password) {
   let obj = { username, password };
   post('user', 'login', 'basic', obj)
-    .then(saveSession)
-    .catch(console.error);
+    .then(() => {
+      saveSession;
+      showInfo('Login Successful');
+    })
+    .catch((err) => {
+      showError(`${err.responseJSON.description}`);
+    });
+  ;
 }
 
 function logout() {
@@ -141,7 +152,6 @@ function startApp() {
 
             login(username, password);
             setTimeout(() => {
-              showInfo('Login Successful');
               ctx.redirect('#/all-songs');
             }, 3000);
           } else {
@@ -155,6 +165,7 @@ function startApp() {
       }
     });
     function displayLogin(context) {
+      sessionStorage.setItem('lastRoute', '#/login');
       context.isLogged = sessionStorage.getItem('authtoken') !== null;
       context.username = sessionStorage.getItem('username');
 
@@ -186,8 +197,7 @@ function startApp() {
             }
             register(obj);
             setTimeout(() => {
-              showInfo('Registration Successful');
-              ctx.redirect('#/index.html');
+              ctx.redirect('#/all-songs');
             }, 3000);
           } else {
             showError('password should be more than 5 characters')
@@ -201,6 +211,7 @@ function startApp() {
     });
 
     function displayRegister(context) {
+      sessionStorage.setItem('lastRoute', '#/register');
       context.isLogged = sessionStorage.getItem('authtoken') !== null;
       context.username = sessionStorage.getItem('username');
 
@@ -214,17 +225,13 @@ function startApp() {
     }
     this.get('#/create', displayCreate);
     this.post('#/create', (ctx) => {
+
       let title = ctx.params.title;
       let artist = ctx.params.artist;
       let imageURL = ctx.params.imageURL;
       let likes = 0;
       let listened = 0;
       let creator = sessionStorage.getItem('username');
-
-      console.log(title.length);
-      console.log(artist.length);
-      console.log(imageURL.length);
-      console.log(creator);
 
       if (title.length < 5) {
         showError('The title should be at least 6 characters long!')
@@ -268,56 +275,66 @@ function startApp() {
     function displayAllSongs(context) {
       context.isLogged = sessionStorage.getItem('authtoken') !== null;
       context.username = sessionStorage.getItem('username');
-
-      let mySongs = [];
-      let otherSongs = [];
-      get('appdata', 'songs', 'Kinvey').then((res) => {
-        for (let i = 0; i < res.length; i++) {
-          if (res[i].creator == context.username) {
-            mySongs.push(res[i]);
-          } else {
-            otherSongs.push(res[i]);
+      if (context.isLogged) {
+        sessionStorage.setItem('lastRoute', '#/all-songs');
+        console.log(context.isLogged);
+        let mySongs = [];
+        let otherSongs = [];
+        get('appdata', 'songs', 'Kinvey').then((res) => {
+          for (let i = 0; i < res.length; i++) {
+            if (res[i].creator == context.username) {
+              mySongs.push(res[i]);
+            } else {
+              otherSongs.push(res[i]);
+            }
           }
-        }
-        context.mySongs = mySongs;
-        context.otherSongs = otherSongs;
+          context.mySongs = mySongs;
+          context.otherSongs = otherSongs;
 
-        context.loadPartials({
-          header: './templates/common/header.hbs',
-          footer: './templates/common/footer.hbs',
-          allsongs: './templates/allsongs/allsongs.hbs'
-        }).then(function () {
-          this.partial('./templates/allsongs/allsongsPage.hbs');
-        });
-      })
+          context.loadPartials({
+            header: './templates/common/header.hbs',
+            footer: './templates/common/footer.hbs',
+            allsongs: './templates/allsongs/allsongs.hbs'
+          }).then(function () {
+            this.partial('./templates/allsongs/allsongsPage.hbs');
+          });
+        })
+      } else {
+        context.redirect(`${sessionStorage.getItem('lastRoute')}`);
+      }
     }
 
     this.get('#/my-songs', displayMySongs);
 
     function displayMySongs(context) {
-      context.isLogged = sessionStorage.getItem('authtoken') !== null;
-      context.username = sessionStorage.getItem('username');
+      sessionStorage.setItem('lastRoute', '#/my-songs');
+      if (!context.isLogged) {
+        context.isLogged = sessionStorage.getItem('authtoken') !== null;
+        context.username = sessionStorage.getItem('username');
 
-      let currentUser = sessionStorage.getItem('username');
+        let currentUser = sessionStorage.getItem('username');
 
-      let url = `https://baas.kinvey.com/appdata/${APP_KEY}/songs/?query={"creator":"${currentUser}"}`
-      $.get({
-        url,
-        success: querySuccess,
-        headers: {
-          'Authorization': makeAuth('Kinvey')
+        let url = `https://baas.kinvey.com/appdata/${APP_KEY}/songs/?query={"creator":"${currentUser}"}`
+        $.get({
+          url,
+          success: querySuccess,
+          headers: {
+            'Authorization': makeAuth('Kinvey')
+          }
+        });
+
+        function querySuccess(res) {
+          context.mySongs = res;
+          context.loadPartials({
+            header: './templates/common/header.hbs',
+            footer: './templates/common/footer.hbs',
+            mysongs: './templates/mysongs/mysongs.hbs'
+          }).then(function () {
+            this.partial('./templates/mysongs/mysongsPage.hbs');
+          })
         }
-      });
-
-      function querySuccess(res) {
-        context.mySongs = res;
-        context.loadPartials({
-          header: './templates/common/header.hbs',
-          footer: './templates/common/footer.hbs',
-          mysongs: './templates/mysongs/mysongs.hbs'
-        }).then(function () {
-          this.partial('./templates/mysongs/mysongsPage.hbs');
-        })
+      } else {
+        context.redirect(`${sessionStorage.getItem('lastRoute')}`);
       }
     }
 
@@ -351,8 +368,11 @@ function startApp() {
         update('appdata', `songs/${id}`, 'Kinvey', obj).then(() => {
           showInfo(`You just listened ${song.title}`);
           setTimeout(() => {
-            ctx.redirect('#/my-songs');
-            ctx.redirect('#/all-songs');
+            if (sessionStorage.getItem('lastRoute') == '#/all-songs') {
+              ctx.redirect('#/all-songs');
+            } else if (sessionStorage.getItem('lastRoute') == '#/my-songs') {
+              ctx.redirect('#/my-songs');
+            }
           }, 1000);
         })
       });
