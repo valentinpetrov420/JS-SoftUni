@@ -22,7 +22,7 @@ function saveSession(userData) {
 function register(data) {
   post('user', '', 'basic', data)
     .then(() => {
-      saveSession;
+      saveSession();
       showInfo('Registration Successful');
     })
     .catch((err) => {
@@ -33,8 +33,8 @@ function register(data) {
 function login(username, password) {
   let obj = { username, password };
   post('user', 'login', 'basic', obj)
-    .then(() => {
-      saveSession;
+    .then((res) => {
+      saveSession(res);
       showInfo('Login Successful');
     })
     .catch((err) => {
@@ -408,4 +408,3 @@ function startApp() {
   app.run();
   console.log('launched app')
 }
-
