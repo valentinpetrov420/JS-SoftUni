@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+*::after, *::before{
+    margin: 0;
+    padding: 0;
+}
+
+#main{
+    display: flex;
+    margin: 1rem auto;
+    border: 1px solid;
+    height: 33rem;
+    width: 56rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+#left{
+    width: 50%;
+}
+
+#right{
+    width: 50%;
+}
+
+#meta-data{
+    display: flex;
+    justify-content: space-around;
+}
+
+#meta-data div{
+    width: 40%;
+}
+
+#meta-data div input,
+#meta-data div select{
+    width: 100%;
+    padding: 0 0.2rem;
+}
+
+#metrics{
+    display: flex;
+    margin: 0 auto;
+    width: 70%;
+}
+
+#img-container{
+    background: url('../Resources/3.\ Calorie\ Calculator/Requirements\-and\-Resources/image/image.png');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+#form-container{
+    height: 100%;
+}
+
+#form-title{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#metrics-left, #metrics-right{
+    padding: 0.5rem 1.5rem;
+}
+
+#metrics-left{
+    background: yellow;
+}
+
+#metrics-right{
+    background: lightgrey;
+}
+
+#weight, #height{
+    margin: 0 1.5rem;
+}
+
+#weight input{
+    width: 100% !important;
+}
+
+#height-metrics{
+    display: flex;
+    justify-content: space-between;
+}
+
+#height-metrics input,
+#weight input,
+#meta-data input,
+#meta-data select{
+    margin-top: 0.5rem;
+    height: 2rem;
+    width: 45%;
+    padding: 0 0.2rem;
+}
+
+#input-button{
+    height: 2rem;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 22px;
+    width: 90%;
+    background: lightskyblue;
+    color: white;
+    line-height: 2rem;
+}

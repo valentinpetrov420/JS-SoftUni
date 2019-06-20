@@ -1,0 +1,146 @@
+@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+*::after, *::before{
+    margin: 0;
+    padding: 0;
+}
+
+#header-header{
+    display: flex;
+    justify-content: space-around;
+    height: 2rem;
+    background: red;
+    color: white;
+}
+
+.header-header-element p{
+    margin: 0 auto;
+    line-height: 2rem;
+}
+
+#background{
+    background-image: url('./image/fitness-main.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 30rem;
+}
+
+#background nav ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    color: white;
+}
+
+#background nav ul li{
+    margin: 1rem 1.5rem;
+    cursor: pointer;
+}
+
+#page-intro{
+    color: white;
+    margin-top: 5rem;
+}
+
+#page-intro p{
+    margin: 1rem;
+}
+
+#intro-title{
+    text-align: center;
+    font-size: 80px;
+}
+
+#intro-text{
+    text-align: center;
+    width: 40%;
+    margin: 0 auto !important;
+}
+
+#intro-button{
+    background: red;
+    padding: 1rem;
+    width: 12%;
+    margin: 0 auto !important;
+    margin-top: 0px !important;
+    margin-top: 3rem !important;
+    cursor: pointer;
+}
+
+#welcome h1, #coaches h1{
+    text-align: center;
+    margin: 2rem;
+    font-size: 24px;
+}
+
+#welcome-sections{
+    display: flex;
+    text-align: center;
+}
+
+#welcome-sections div{
+    width: 33%
+}
+
+#welcome-sections i{
+    font-size: 60px;
+}
+
+hr{
+    width: 4%;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    margin-bottom: 1rem;
+    color: red;
+}
+
+.welcome-title{
+    margin: 1rem 0;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#coaches{
+    background: lightgray;
+    margin-top: 3rem;
+    padding: 2rem 0;
+
+}
+
+#coach-list{
+    display: flex;
+    text-align: center;
+}
+
+.coach-item{
+    width: 25%;
+    margin: 0 auto;
+}
+
+.coach-item img{
+    border-radius: 10px;
+}
+
+.coach-item h3{
+    color: red;
+    margin: 0.5rem;
+}
+
+.coach-item p{
+    color: darkgray;
+}
+
+footer{
+    background: red;
+    text-align: center;
+    height: 2rem;
+    line-height: 2rem;
+}
